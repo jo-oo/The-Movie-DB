@@ -1,12 +1,29 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { QueryClient, QueryClientProvider } from 'react-query'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 
+//creates an instance of queryClient. Used to interact with a cache:
+const queryClient = new QueryClient({
+	defaultOptions: {
+		queries: {
+			refetchOnWindowFocus: false,
+			staleTime: 5 * 60 * 1000, // 5 minutes
+			cacheTime: 15 * 60 * 1000, // 15 minutes
+		}
+	}
+})
+
+//wrappes App in QueryClientProvider to make React Query available to any component. Sends in our QueryQlient as a prop
 ReactDOM.createRoot(document.getElementById('root')).render(
 	<React.StrictMode>
-		<BrowserRouter>
-			<App />
-		</BrowserRouter>
+
+		<QueryClientProvider client={queryClient}>
+			<BrowserRouter>
+				<App />
+			</BrowserRouter>
+		</QueryClientProvider>
+
 	</React.StrictMode>
 )
