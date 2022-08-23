@@ -1,3 +1,4 @@
+import { ReactQueryDevtools } from 'react-query/devtools'
 import { Routes, Route } from 'react-router-dom'
 import Navigation from './components/Navigation'
 import HomePage from './pages/HomePage'
@@ -13,6 +14,8 @@ function App() {
 				<Route path="/" element={<HomePage />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
+
+			<ReactQueryDevtools position='bottom-right' />
 		</div>
 	)
 }
