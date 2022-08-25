@@ -5,8 +5,6 @@ const MovieInfoCard = ({ data }) => {
 	return (
 		<Container className="py-3 text-center">
 
-						<h1>Popular movies</h1>
-
 						{data.data.results.map((movie) => (
 
 						<Card key={movie.id} className="mb-3">

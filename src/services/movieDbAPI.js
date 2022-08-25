@@ -13,7 +13,8 @@ const getPopularMovies = async () => {
 
 const getTopRatedMovies = async () => {
 	const response = await axios.get(`/movie/top_rated?api_key=${API_KEY}`)
-	return response.data
+	console.log(response)
+	return response;
 }
 
 const functions = {

@@ -3,7 +3,8 @@ import { Routes, Route } from 'react-router-dom'
 import Navigation from './components/Navigation'
 import HomePage from './pages/HomePage'
 import NotFound from './pages/NotFound'
-import PopularMoviesPage from './pages/PopularMoviesPage'
+//import PopularMoviesPage from './pages/PopularMoviesPage'
+import TopRatedMoviesPage from './pages/TopRatedMoviesPage'
 import './assets/scss/App.scss'
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
 
 			<Routes>
 				<Route path="/" element={<HomePage />} />
-				<Route path="/popular" element={<PopularMoviesPage />} />
+				{/*<Route path="/popular" element={<PopularMoviesPage />} /> */ }
+				<Route path="/top_rated" element={<TopRatedMoviesPage />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 
