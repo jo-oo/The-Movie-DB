@@ -1,1 +1,20 @@
 @import 'bootstrap/scss/bootstrap';
+
+body {
+    background-color: #f0eee3;
+    color: rgba(0, 0, 0, 0.89);
+}
+
+.navbar {
+    background-color: #ff1313;
+}
+
+.carousel-control-prev-icon {
+    height: 15vw;
+    width: 15vw;  
+}
+
+.carousel-control-next-icon {
+    height: 15vw;
+    width: 15vw;  
+}
