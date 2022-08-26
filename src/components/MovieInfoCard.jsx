@@ -1,11 +1,11 @@
 import { Button, Card, Container } from 'react-bootstrap'
 //import { Link } from 'react-router-dom'
 
-const MovieInfoCard = ({ data }) => {
+const MovieInfoCard = ({ movie }) => {
 	return (
 		<Container className="py-3 text-center">
 
-						{data.data.results.map((movie) => (
+			 { movie && 
 
 						<Card key={movie.id} className="mb-3">
 							<Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} /> 
@@ -31,7 +31,7 @@ const MovieInfoCard = ({ data }) => {
 								</Card.Body>
 						</Card>
 
-						))}
+						}
 					</Container>
 	)
 }
