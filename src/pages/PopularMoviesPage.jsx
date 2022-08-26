@@ -1,4 +1,4 @@
-import { Container, Card, Button } from 'react-bootstrap'
+/*import { Container, Card, Button } from 'react-bootstrap'
 import usePopularMovies from "../hooks/usePopularMovies"
 import MovieInfoCard from '../components/MovieInfoCard'
 
@@ -16,7 +16,7 @@ const PopularMoviesPage = () => {
 
 			{data && (
 				<>
-				
+				 	<h1>Popular movies</h1>
 					<MovieInfoCard data={data} /> 
 				</>
 			)}
@@ -25,4 +25,4 @@ const PopularMoviesPage = () => {
 	)
 }
 
-export default PopularMoviesPage
+export default PopularMoviesPage*/

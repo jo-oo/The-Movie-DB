@@ -1,4 +1,4 @@
-import { Container, Card, Button } from 'react-bootstrap'
+/*import { Container, Card, Button } from 'react-bootstrap'
 import useTopRatedMovies from "../hooks/useTopRatedMovies"
 import MovieInfoCard from '../components/MovieInfoCard'
 
@@ -26,3 +26,4 @@ const TopRatedMoviesPage = () => {
 }
 
 export default TopRatedMoviesPage
+*/

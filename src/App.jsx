@@ -4,8 +4,10 @@ import Navigation from './components/Navigation'
 import HomePage from './pages/HomePage'
 import NotFound from './pages/NotFound'
 //import PopularMoviesPage from './pages/PopularMoviesPage'
-import TopRatedMoviesPage from './pages/TopRatedMoviesPage'
+//import TopRatedMoviesPage from './pages/TopRatedMoviesPage'
 import './assets/scss/App.scss'
+import SpecificMoviePage from './pages/SpecificMoviePage'
+
 
 function App() {
 	return (
@@ -15,7 +17,8 @@ function App() {
 			<Routes>
 				<Route path="/" element={<HomePage />} />
 				{/*<Route path="/popular" element={<PopularMoviesPage />} /> */ }
-				<Route path="/top_rated" element={<TopRatedMoviesPage />} />
+				{/*<Route path="/top_rated" element={<TopRatedMoviesPage />} /> */}
+				<Route path="/movie/:id" element={<SpecificMoviePage />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 
