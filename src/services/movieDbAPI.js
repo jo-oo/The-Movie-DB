@@ -18,13 +18,24 @@ const getTopRatedMovies = async () => {
 }
 
 const getCurrentMovies = async () => {
-	return await axios.get(`movie/now_playing?api_key=${API_KEY}`)
+	return await axios.get(`movie/now_playing?api_key=${API_KEY}&include_adult=false`)
 }
+
+//get specific movie, based on id. 
+const getSpecificMovie = async (id) => {
+	const res = await axios.get(`movie/${id}?api_key=${API_KEY}&include_adult=false&append_to_response=credits`) //only gets credits endpoint when this is added
+	console.log("Response", res.data)
+	return res.data;
+}
+
+//get movie dy genre /discover
+
 
 const functions = {
 	getPopularMovies,
 	getTopRatedMovies,
-	getCurrentMovies
+	getCurrentMovies,
+	getSpecificMovie 
 }
 
 export default functions
