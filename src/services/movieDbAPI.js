@@ -12,14 +12,19 @@ const getPopularMovies = async () => {
 }
 
 const getTopRatedMovies = async () => {
-	const response = await axios.get(`/movie/top_rated?api_key=${API_KEY}`)
+	const response = await axios.get(`movie/top_rated?api_key=${API_KEY}`)
 	console.log(response)
 	return response;
 }
 
+const getCurrentMovies = async () => {
+	return await axios.get(`movie/now_playing?api_key=${API_KEY}`)
+}
+
 const functions = {
 	getPopularMovies,
-	getTopRatedMovies
+	getTopRatedMovies,
+	getCurrentMovies
 }
 
 export default functions
