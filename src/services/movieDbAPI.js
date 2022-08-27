@@ -30,6 +30,17 @@ const getSpecificMovie = async (id) => {
 	return res.data;
 }
 
+//get specific actor, based on id. 
+const getSpecificActor = async (id) => {
+	console.log("GetSpecificAvtpr", id)
+	const res = await axios.get(`person/${id}?api_key=${API_KEY}&append_to_response=credits`) //only gets credits endpoint when this is added
+	console.log("Response actor", res.data)
+	return res.data;
+}
+
+
+
+
 //get movie dy genre /discover
 
 
@@ -37,7 +48,8 @@ const functions = {
 	getPopularMovies,
 	getTopRatedMovies,
 	getCurrentMovies,
-	getSpecificMovie 
+	getSpecificMovie,
+	getSpecificActor
 }
 
 export default functions

@@ -7,6 +7,7 @@ import NotFound from './pages/NotFound'
 //import TopRatedMoviesPage from './pages/TopRatedMoviesPage'
 import './assets/scss/App.scss'
 import SpecificMoviePage from './pages/SpecificMoviePage'
+import SpecificActorPage from './pages/SpecificActorPage'
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
 				{/*<Route path="/popular" element={<PopularMoviesPage />} /> */ }
 				{/*<Route path="/top_rated" element={<TopRatedMoviesPage />} /> */}
 				<Route path="/movie/:id" element={<SpecificMoviePage />} />
+				<Route path="/person/:id" element={<SpecificActorPage />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 
