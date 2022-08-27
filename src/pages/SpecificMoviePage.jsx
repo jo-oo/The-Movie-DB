@@ -1,7 +1,7 @@
 import { Container, Card, Button } from 'react-bootstrap'
 //import useSpecificMovie from '../hooks/useSpecificMovie'
 import MovieInfoCard from '../components/MovieInfoCard'
-import { useParams } from 'react-router-dom'
+import {  Link, useNavigate, useParams } from 'react-router-dom'
 import MovieDbAPI from '../services/movieDbAPI'
 import { useQuery } from 'react-query'
 
@@ -25,7 +25,7 @@ const SpecificMoviePage = () => {
 			{data && (
 				<>
 					<h1>Info about the movie</h1>
-				<MovieInfoCard movie= {data} />
+					<MovieInfoCard movie= {data} />
 				</>
 			)}
 			
