@@ -1,5 +1,5 @@
 import { Carousel, Row, Col } from 'react-bootstrap'
-//import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 //hooks that makes the query to the different end points
 import usePopularMovies from '../hooks/usePopularMovies' //GET /popular
@@ -14,8 +14,9 @@ const MovieCarousel = () => {
     const BASE_URL_IMAGE = 'https://image.tmdb.org/t/p/w500'
 
 	return (
-        <><Row className="movieCarouselWrapper">
-            <Col sm={12} md={6} lg={6}>
+        <>
+        <Row className="movieCarouselWrapper">
+            <Col className='mt-5' sm={12} md={6} lg={6}>
                 <h2>In Cinemas now!</h2>
                 {currentMovies && (
                     <Carousel className="my-3 movieCarousel">
@@ -24,9 +25,11 @@ const MovieCarousel = () => {
                                 key={movie.id}
                                 interval={1500}
                                 action="true"
+                                as={Link}
+                                to={`/movie/${movie.id}`}
                             >
                                 <img
-                                    className="d-block w-100"
+                                    className="d-block w-100 carousel-img"
                                     src={BASE_URL_IMAGE + movie.poster_path}
                                     alt="First slide" />
                             </Carousel.Item>
@@ -34,7 +37,7 @@ const MovieCarousel = () => {
                     </Carousel>
                 )}
             </Col>
-            <Col sm={12} md={6} lg={6}>
+            <Col className='mt-5 'sm={12} md={6} lg={6}>
                 <h2>Top 20!</h2>
                 {topRatedMovies && (
                     <Carousel className="my-3 movieCarousel">
@@ -43,9 +46,11 @@ const MovieCarousel = () => {
                                 key={movie.id}
                                 interval={1500}
                                 action="true"
+                                as={Link}
+                                to={`/movie/${movie.id}`}
                             >
                                 <img
-                                    className="d-block w-100"
+                                    className="d-block w-100 carousel-img"
                                     src={BASE_URL_IMAGE + movie.poster_path}
                                     alt="First slide" />
                             </Carousel.Item>
@@ -54,12 +59,12 @@ const MovieCarousel = () => {
                 )}
             </Col>
         </Row>
-        <Row className="movieCarouselWrapper">
+        <Row className="mt-5 movieCarouselWrapper">
             <Col className="d-md-none d-l-none d-flex" sm={12} md={6} lg={6}>
                 <h2>Popular!</h2>
             </Col>
             <Col className="d-sm-none d-md-block text-center" sm={12} md={6} lg={6}>
-                <h3 class="animate-charcter"> Trending now</h3>
+                <h3 className="animate-charcter"> Trending now</h3>
             </Col>
             <Col sm={12} md={6} lg={6}>
                 {popularMovies && (
@@ -69,9 +74,11 @@ const MovieCarousel = () => {
                                 key={movie.id}
                                     interval={1500}
                                     action="true"
+                                    as={Link}
+                                    to={`/movie/${movie.id}`}
                                 >
                                     <img
-                                        className="d-block w-100"
+                                        className="carousel-img d-block w-100"
                                         src={BASE_URL_IMAGE + movie.poster_path}
                                         alt="First slide" />
                                 </Carousel.Item>
