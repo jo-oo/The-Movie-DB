@@ -1,15 +1,13 @@
 import { Container, Card, Button } from 'react-bootstrap'
-//import useSpecificMovie from '../hooks/useSpecificMovie'
+import useSpecificMovie from '../hooks/useSpecificMovie'
 import MovieInfoCard from '../components/MovieInfoCard'
 import {  Link, useNavigate, useParams } from 'react-router-dom'
-import MovieDbAPI from '../services/movieDbAPI'
-import { useQuery } from 'react-query'
 
 
 const SpecificMoviePage = () => {
 
 	const { id } = useParams()
-	const { data, isError, error, isLoading } = useQuery(['specificMovie', id], () => MovieDbAPI.getSpecificMovie(id)) //the useSpecificMovie-hook is where we use useQuery
+	const { data, isError, error, isLoading } = useSpecificMovie(id) //the useSpecificMovie-hook is where we use useQuery
  
 	console.log("Data heeere", data);
 

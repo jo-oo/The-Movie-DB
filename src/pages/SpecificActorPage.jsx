@@ -1,15 +1,15 @@
 import { Container, Card, Button } from 'react-bootstrap'
 import ActorInfoCard from '../components/ActorInfoCard'
 import {  useParams } from 'react-router-dom'
-import MovieDbAPI from '../services/movieDbAPI'
-import { useQuery } from 'react-query'
-//import useSpecificActor from '../hooks/useSpecificActor'
+//import MovieDbAPI from '../services/movieDbAPI'
+//import { useQuery } from 'react-query'
+import useSpecificActor from '../hooks/useSpecificActor'
 
 
 const SpecificActorPage = () => {
 
 	const { id } = useParams()
-	const { data, isError, error, isLoading } =  useQuery(['specificActor', id], () => MovieDbAPI.getSpecificActor(id)) //the useSpecificActor-hook is where we use useQuery
+	const { data, isError, error, isLoading } = useSpecificActor(id) //the useSpecificActor-hook is where we use useQuery
  
 	console.log("Actor data", data);
 
