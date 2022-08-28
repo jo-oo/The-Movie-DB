@@ -1,4 +1,6 @@
-import { Button, Card, Container, Row} from 'react-bootstrap'
+import { Button, Card, Container, Row, Col} from 'react-bootstrap'
+import CardHeader from 'react-bootstrap/esm/CardHeader'
+import { Carousel } from 'react-bootstrap'
 import { Link, useNavigate} from 'react-router-dom'
 //import { Link } from 'react-router-dom'
 
@@ -12,10 +14,10 @@ const MovieInfoCard = ({ movie }) => {
 			{/*render only if data (movie) is fetched*/}
 			 { movie && 
 
-						<Card key={movie.id} className="mb-3">
+						<Card key={movie.id} className="mb-3 card">
 							<Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} /> 
 								<Card.Body>
-									<Card.Title> {movie.original_title} </Card.Title>
+									<Card.Title> {movie.title} </Card.Title>
 										<Card.Text> 
 											<div>
 												<span className="fw-bold"> Released: </span>  {movie.release_date}
@@ -34,14 +36,14 @@ const MovieInfoCard = ({ movie }) => {
 											<div className='d-flex flex-wrap'>
 											<Row xs={2} md={4} lg={6} className="g-4">
 												{movie.credits.cast.map(actor => (
-													<Card key={actor.id} className=''>
+													<Card key={actor.id} className='cast'>
 														{actor.profile_path && (
 															<Card.Img className= 'mt-3' variant="top" src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`} />
 														)}
 														<Card.Body className='d-flex flex-column'>
 															<Card.Title>{actor.name}</Card.Title>
 															<Card.Text className='text-muted'>{actor.character}</Card.Text>
-															<Button className='mt-auto' as={Link} to={`/person/${actor.id}`} variant="dark">Read more</Button>
+															<Button className='mt-auto' as={Link} to={`/actor/${actor.id}`} variant="dark">Read more</Button>
 														</Card.Body>
 													</Card>
 												))}
@@ -52,7 +54,58 @@ const MovieInfoCard = ({ movie }) => {
 										</Card.Text>
 									
 								</Card.Body>
-						</Card>
+
+								
+								{/*Similar movies Caroousel*/}
+
+								<Row className="movieCarouselWrapper">
+									<Col className='mt-5' sm={12} md={6} lg={6}>
+									<h2>Similar movies</h2>
+		
+									<Carousel className="my-3 movieCarousel">
+										{movie.similar.results.map(movie => (
+											<Carousel.Item
+												key={movie.id}
+												interval={1500}
+												action="true"
+												as={Link}
+												to={`/movie/${movie.id}`}
+										>
+											<img
+												className="d-block w-100 carousel-img"
+												src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+												alt="First slide" />
+											</Carousel.Item>
+										))}
+									</Carousel>
+					
+									</Col>
+								</Row>
+
+								{/*Similar movies Card*/}
+
+								<Card>
+									<h1>Similar movies</h1>
+                     				{/* Render movies */ }
+					 				<div className='d-flex flex-wrap'>
+
+									<Row xs={2} md={4} lg={6} className="g-4">
+										{movie.similar.results.map(movie => (
+											<Card key={movie.id} className=''>
+												{movie.poster_path && (
+													<Card.Img className= 'mt-3' variant="top" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
+												)}
+												<Card.Body className='d-flex flex-column'>
+													<Card.Title>{movie.title}</Card.Title>
+										
+													<Button className='mt-auto' as={Link} to={`/movie/${movie.id}`} variant="dark">Read more</Button>
+												</Card.Body>
+											</Card>
+	 									))}
+									</Row>
+									</div>
+								</Card>
+							</Card>
 
 						}
 					</Container>

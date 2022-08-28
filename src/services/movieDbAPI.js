@@ -23,9 +23,9 @@ const getCurrentMovies = async () => {
 	return await axios.get(`movie/now_playing?api_key=${API_KEY}${adultCont}`)
 }
 
-//get specific movie, based on id. 
+//get specific movie, based on id. Also gets credits and similar movies: //https://api.themoviedb.org/3/movie/{movie_id}/similar?api_key=<<api_key>>&language=en-US&page=1
 const getSpecificMovie = async (id) => {
-	const res = await axios.get(`movie/${id}?api_key=${API_KEY}${adultCont}&append_to_response=credits`) //only gets credits endpoint when this is added
+	const res = await axios.get(`movie/${id}?api_key=${API_KEY}${adultCont}&append_to_response=credits,similar`) //only gets credits, and similar endpoints when this is added
 	console.log("Response", res.data)
 	return res.data;
 }
@@ -49,9 +49,6 @@ const getMoviesByGenre = async (page, id) => {
 
 	return await axios.get(`discover/movie?api_key=${API_KEY}&language=en-US&popularity.desc${adultCont}&page=${page}&with_genres=${id}`)
 }
-
-
-
 
 
 
