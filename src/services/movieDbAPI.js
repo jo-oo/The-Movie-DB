@@ -38,10 +38,17 @@ const getSpecificActor = async (id) => {
 	return res.data;
 }
 
+//Get genres in DB
+const getGenres = async () => {
+    const resp = await axios.get(`/genre/movie/list?api_key=${API_KEY}&language=en-US`)
+	console.log("Response genre", resp.data)
+    return resp.data
+}
 
 
 
-//get movie dy genre /discover
+
+
 
 
 const functions = {
@@ -49,7 +56,8 @@ const functions = {
 	getTopRatedMovies,
 	getCurrentMovies,
 	getSpecificMovie,
-	getSpecificActor
+	getSpecificActor,
+	getGenres
 }
 
 export default functions
