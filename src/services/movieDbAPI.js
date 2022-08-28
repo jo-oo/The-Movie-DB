@@ -45,6 +45,11 @@ const getGenres = async () => {
     return resp.data
 }
 
+const getMoviesByGenre = async (page, id) => {
+
+	return await axios.get(`discover/movie?api_key=${API_KEY}&language=en-US&popularity.desc${adultCont}&page=${page}&with_genres=${id}`)
+}
+
 
 
 
@@ -57,7 +62,9 @@ const functions = {
 	getCurrentMovies,
 	getSpecificMovie,
 	getSpecificActor,
-	getGenres
+	getGenres,
+	getMoviesByGenre
+	
 }
 
 export default functions

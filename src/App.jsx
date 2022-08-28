@@ -9,6 +9,7 @@ import './assets/scss/App.scss'
 import SpecificMoviePage from './pages/SpecificMoviePage'
 import SpecificActorPage from './pages/SpecificActorPage'
 import GenresPage from './pages/GenresPage'
+import MoviesByGenrePage from './pages/MoviesByGenrePage'
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
 				<Route path="/movie/:id" element={<SpecificMoviePage />} />
 				<Route path="/actor/:id" element={<SpecificActorPage />} />
 				<Route path="/genres" element={<GenresPage />} />
+				<Route path="/genres/:id" element={<MoviesByGenrePage />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 
