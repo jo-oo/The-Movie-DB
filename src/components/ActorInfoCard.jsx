@@ -31,7 +31,7 @@ const ActorInfoCard = ({ actor }) => {
                         </Card>
 
 
-                    §   <h3>Filmography</h3>
+                       <h3>Filmography</h3>
 
                         {/* Render movies actor appeared in*/ }
                         <div className='d-flex flex-wrap'>
