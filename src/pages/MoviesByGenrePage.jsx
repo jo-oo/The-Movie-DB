@@ -35,7 +35,7 @@ const MoviesByGenrePage = () => {
 
 			{data && (
 				<>
-				 	<h1>Movies in this Genre</h1>
+				 	<h1 className="mb-3 mt-3">Movies in this Genre</h1>
 					
 					<MoviesByGenreList movies = {data} />
 

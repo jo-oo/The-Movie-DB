@@ -9,11 +9,11 @@ const GenresList = ({ genres }) => {
 				
 			{/*render only if data (genres) is fetched. Renders all Genres as links*/}
 			{ genres && 
-                 <div className='d-flex flex-wrap'>
+                 <div className='d-flex flex-wrap m-2'>
                  {/*prints all genres */}
                  <Row xs={2} md={4} lg={6} className="g-4">
                      {genres.genres.map(genre => (
-                        <Card key={genre.id} className='mt-auto' as={Link} to={`/genres/genre?genre_id=${genre.id}&page=1`} variant="dark"
+                        <Card key={genre.id} className='mt-auto m-1' as={Link} to={`/genres/genre?genre_id=${genre.id}&page=1`} variant="dark"
                             onClick={() => {
                                 setSearchParams({ 
                                     page: 1 ,

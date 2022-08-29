@@ -64,7 +64,7 @@ const MovieCarousel = () => {
                     <h2>Popular!</h2>
                 </Col>
                 <Col className="d-sm-none d-md-block text-center" sm={12} md={6} lg={6}>
-                    <h3 className="animate-charcter"> Trending now</h3>
+                    <h3 className="animate-charcter m-2"> Trending now</h3>
                 </Col>
                 <Col sm={12} md={6} lg={6}>
                     {popularMovies && (

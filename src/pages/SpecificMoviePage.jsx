@@ -22,7 +22,7 @@ const SpecificMoviePage = () => {
   
 			{data && (
 				<>
-					<h1>Info about the movie</h1>
+					<h1 className="mb-3 mt-3">Info about the movie</h1>
 					<MovieInfoCard movie= {data} />
 				</>
 			)}

@@ -17,7 +17,7 @@ const GenresPage = () => {
 
 			{data && (
 				<>
-				 	<h1>Genres</h1>
+				 	<h1 className="mb-5 mt-3">Genres</h1>
 					<GenresList genres={data} />
                 </>
 			)}

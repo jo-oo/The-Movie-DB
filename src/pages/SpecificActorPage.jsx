@@ -23,7 +23,7 @@ const SpecificActorPage = () => {
   
 			{data && (
 				<>
-					<h1>Info about the actor</h1>
+					<h1 className="mb-3 mt-3">Info about the actor</h1>
 				    <ActorInfoCard actor= {data} />
 				</>
 			)}

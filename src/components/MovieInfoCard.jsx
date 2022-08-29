@@ -12,26 +12,26 @@ const MovieInfoCard = ({ movie }) => {
 			{ movie && 
 
 				<Card key={movie.id} className="mb-3 card">
-				<Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} /> 
+				<Card.Img className="mb-3" variant="top" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} /> 
 					<Card.Body>
 						<Card.Title> {movie.title} </Card.Title>
-						<Card.Text> 
+						<Card.Text className="mb-3 mt-4"> 
 							<div>
 								<span className="fw-bold"> Released: </span>  {movie.release_date}
 							</div>
 							<div>
 								<span className="fw-bold"> Average score: </span>  {movie.vote_average}
 							</div>
-							<div>
+							<div className="mb-4">
 								<span className="fw-bold"> Overview: </span>  {movie.overview}
 							</div>
 							
 							<div>
-								<h3>Cast</h3>
+								<h3 className="mb-3 mt-4">Cast</h3>
 
 								{/* Render actors in movie */ }
 								<div className='d-flex flex-wrap'>
-									<Row xs={2} md={4} lg={6} className="g-4">
+									<Row xs={2} md={4} lg={6} className="g-4 m-1 justify-content-center">
 										{movie.credits.cast.map(actor => (
 											<Card key={actor.id} className='cast'>
 												{actor.profile_path && (
@@ -54,7 +54,7 @@ const MovieInfoCard = ({ movie }) => {
 					{/*Similar movies Carousel*/}
 					<Row className="movieCarouselWrapper ml-5">
 						<Col className='mt-5' sm={12} md={12} lg={12}>
-						<h2>Similar movies</h2>
+						<h2 className="mb-4 mt-4">Similar movies</h2>
 		
 						<Carousel className="my-3 movieCarousel">
 							{movie.similar.results.map(movie => (

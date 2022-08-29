@@ -10,7 +10,7 @@ const ActorInfoCard = ({ actor }) => {
 			{/*render only if data (movie) is fetched*/}
 			{ actor && ( 
                
-                <Card key = {actor.id} className=''>
+                <Card key = {actor.id}>
                     <Card.Body>
                         <Card>
                             {/* Render info about the actor*/ }
@@ -31,12 +31,12 @@ const ActorInfoCard = ({ actor }) => {
                         </Card>
 
 
-                       <h3>Filmography</h3>
+                       <h3 className="mb-3 mt-4">Filmography</h3>
 
                         {/* Render movies actor appeared in*/ }
                         <div className='d-flex flex-wrap'>
 
-                            <Row xs={2} md={4} lg={6} className="g-4">
+                            <Row xs={2} md={4} lg={6} className="g-4 m-1 justify-content-center">
                                 {actor.credits.cast.map(movie => (
                                     <Card key={movie.id} className=''>
                                         {movie.poster_path && (
