@@ -45,10 +45,14 @@ const getGenres = async () => {
     return resp.data
 }
 
-const getMoviesByGenre = async (page, id) => {
-
-	return await axios.get(`discover/movie?api_key=${API_KEY}&language=en-US&popularity.desc${adultCont}&page=${page}&with_genres=${id}`)
+const getMoviesByGenre = async ({ queryKey }) => {
+		const [_key, {page, genre_id}] = queryKey
+		console.log("Response genre ID",genre_id)
+	return await axios.get(`discover/movie?api_key=${API_KEY}&language=en-US&popularity.desc${adultCont}&page=${page}&with_genres=${genre_id}`)
 }
+
+
+
 
 
 
