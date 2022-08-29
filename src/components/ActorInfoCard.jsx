@@ -1,44 +1,37 @@
 import { Button, Card, Container, Col, Row} from 'react-bootstrap'
-import { Link, useNavigate} from 'react-router-dom'
-//import { Link } from 'react-router-dom'
-import ListGroup from 'react-bootstrap/ListGroup'
+import { Link } from 'react-router-dom'
+
 
 const ActorInfoCard = ({ actor }) => {
-
-
-    console.log(actor);
 
 	return (
 		<Container className="py-3 text-center">
 				
 			{/*render only if data (movie) is fetched*/}
-			 { actor && ( 
+			{ actor && ( 
                
                 <Card key = {actor.id} className=''>
-
-                    
                     <Card.Body>
                         <Card>
-                    {/* Render info about the actor*/ }
-                    <div className='d-flex flex-wrap m-3'>
-                        <Col xs={4} md={2} lg={4} className="g-4">
-                        {actor.profile_path && (
-                                            <Card.Img className='actor-img' variant="top" src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`} />
-                                        )}
-                            </Col>
-                                <Col xs={8} md={10} lg={6} className="g-4"> 
-                                    <Card.Text className='strong'> Name: {actor.name}</Card.Text>
-                                    <Card.Text className='strong'> Place of birth: {actor.place_of_birth}</Card.Text>
-                                    <Card.Text className='strong'> Popularity: {actor.popularity}</Card.Text>
+                            {/* Render info about the actor*/ }
+                            <div className='d-flex flex-wrap m-3'>
+                                <Col xs={4} md={2} lg={4} className="g-4">
+                                    {actor.profile_path && (
+                                        <Card.Img className='actor-img' variant="top" src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`} />
+                                    )}
+                                    </Col>
+                                        <Col xs={8} md={10} lg={6} className="g-4"> 
+                                            <Card.Text className='strong'> Name: {actor.name}</Card.Text>
+                                            <Card.Text className='strong'> Place of birth: {actor.place_of_birth}</Card.Text>
+                                            <Card.Text className='strong'> Popularity: {actor.popularity}</Card.Text>
+                                        </Col>
+                                    <Col>
                                 </Col>
-                            <Col>
-                        
-                        </Col>
-                    </div>
-                    </Card>
+                            </div>
+                        </Card>
 
 
-                    <h3>Filmography</h3>
+                    §   <h3>Filmography</h3>
 
                         {/* Render movies actor appeared in*/ }
                         <div className='d-flex flex-wrap'>
@@ -59,9 +52,6 @@ const ActorInfoCard = ({ actor }) => {
                                  ))}
                             </Row>
                         </div>
-
-                     
-
                     </Card.Body>
                 </Card>
             )}

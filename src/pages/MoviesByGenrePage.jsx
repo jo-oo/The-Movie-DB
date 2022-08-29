@@ -1,27 +1,26 @@
-import { Container, Card, Button, Row } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import useMovieByGenre from '../hooks/useMoviesByGenre'
-import GenresList from '../components/GenresList'
-import { useParams, useSearchParams } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import { useSearchParams } from 'react-router-dom'
 import MoviesByGenreList from '../components/MoviesByGenreList'
 import Pagination from '../components/Pagination'
 
 
 const MoviesByGenrePage = () => {
 
-	const [searchParams, setSearchParams] = useSearchParams({ page: 1, genre_id: "", }) //intitierar useSearchParams med en page 1 and the genre_id from the GET-request
+	const [searchParams, setSearchParams] = useSearchParams({ page: 1, genre_id: "", }) //intitiates useSearchParams with a page 1 and the genre_id from the GET-request
 	console.log("")
 
-	// hämtar data från url id och page namnen på dom säts i App.jsx
+	// gets data from url: id and page. these are named in the path in App.jsx
+	//gets the data from searchParams. They are returned as strings so they are here converted into Numbers
 	const genre_id = searchParams.get('genre_id') ? Number(searchParams.get('genre_id')) : ""
-	const page = searchParams.get('page') ? Number(searchParams.get('page')) : null //hämtar ut page från searchParams. Dom kommer tillbaka som stärngar så jag konvereterar den till number
-
-
+	const page = searchParams.get('page') ? Number(searchParams.get('page')) : null /
+	
 	console.log("page", page)
 	console.log("genre_id ", genre_id)
-	const { data , error, isLoading, isError} = useMovieByGenre(page, genre_id) //gets Movies by Genre
 
-	
+	//gets Movies by Genre
+	const { data , error, isLoading, isError} = useMovieByGenre(page, genre_id) 
+
     console.log("movies by genre Page", genre_id)
 	console.log(data)
 
@@ -40,16 +39,17 @@ const MoviesByGenrePage = () => {
 					
 					<MoviesByGenreList movies = {data} />
 
-
 					<Pagination
 							page={page}
 							numPages={data.data.total_pages} 
-							hasPreviousPage={(data.data.page > 1)} //kmr va disabled om det inte finns nån förra sida, om page är större än 1
-							hasNextPage={(data.data.page < (data.data.total_pages <= 500 ? data.data.total_pages : 500)) } //kmr va disabled om det inte finns nån nästa sida. om page är mindre än total pages, sets total pages to either total pages or a maximum of 500 taotal pages in pagination since api stops fetching new data after 500 pages
-							onPreviousPage={() => setSearchParams({ genre_id: genre_id, page: page - 1})} //när du trycker på tex Previous Page sätter jag mina serachParams till: query till avd query redan är och page till vad den är minus 1
+							//will be disabled if no previous page exists (if page is bigger than 1)
+							hasPreviousPage={(data.data.page > 1)} 
+							//will be disabled if no next page exists. If page is less than total pages, it sets total pages to either total pages or a maximum of 500 total pages in pagination since api stops fetching new data after 500 pages
+							hasNextPage={(data.data.page < (data.data.total_pages <= 500 ? data.data.total_pages : 500)) } 
+							//when clicking on Previous Page, searchParams is set to: genre_id to what it already is, and page to what it is minus 1
+							onPreviousPage={() => setSearchParams({ genre_id: genre_id, page: page - 1})} 
 							onNextPage={() => setSearchParams({ genre_id: genre_id, page: page + 1})}
-						/>
-
+					/>
                 </>
 			)}
 

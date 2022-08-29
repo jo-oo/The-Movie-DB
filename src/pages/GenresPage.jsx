@@ -1,4 +1,4 @@
-import { Container, Card, Button, Row } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import useGenres from "../hooks/useGenres"
 import GenresList from '../components/GenresList'
 

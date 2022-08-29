@@ -1,8 +1,6 @@
-import { Container, Card, Button } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import ActorInfoCard from '../components/ActorInfoCard'
-import {  useParams, useNavigate} from 'react-router-dom'
-//import MovieDbAPI from '../services/movieDbAPI'
-//import { useQuery } from 'react-query'
+import {  useParams } from 'react-router-dom'
 import useSpecificActor from '../hooks/useSpecificActor'
 
 

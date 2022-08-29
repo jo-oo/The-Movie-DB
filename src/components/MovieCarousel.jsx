@@ -58,35 +58,36 @@ const MovieCarousel = () => {
                     </Carousel>
                 )}
             </Col>
-        </Row>
-        <Row className="mt-5 movieCarouselWrapper">
-            <Col className="d-md-none d-l-none d-flex" sm={12} md={6} lg={6}>
-                <h2>Popular!</h2>
-            </Col>
-            <Col className="d-sm-none d-md-block text-center" sm={12} md={6} lg={6}>
-                <h3 className="animate-charcter"> Trending now</h3>
-            </Col>
-            <Col sm={12} md={6} lg={6}>
-                {popularMovies && (
-                    <Carousel className="my-3 movieCarousel">
-                        {popularMovies.data.results.map(movie => (
-                            <Carousel.Item
-                                key={movie.id}
-                                    interval={1500}
-                                    action="true"
-                                    as={Link}
-                                    to={`/movie/${movie.id}`}
-                                >
-                                    <img
-                                        className="carousel-img d-block w-100"
-                                        src={BASE_URL_IMAGE + movie.poster_path}
-                                        alt="First slide" />
+            </Row>
+            <Row className="mt-5 movieCarouselWrapper">
+                <Col className="d-md-none d-l-none d-flex" sm={12} md={6} lg={6}>
+                    <h2>Popular!</h2>
+                </Col>
+                <Col className="d-sm-none d-md-block text-center" sm={12} md={6} lg={6}>
+                    <h3 className="animate-charcter"> Trending now</h3>
+                </Col>
+                <Col sm={12} md={6} lg={6}>
+                    {popularMovies && (
+                        <Carousel className="my-3 movieCarousel">
+                            {popularMovies.data.results.map(movie => (
+                                <Carousel.Item
+                                    key={movie.id}
+                                        interval={1500}
+                                        action="true"
+                                        as={Link}
+                                        to={`/movie/${movie.id}`}
+                                    >
+                                        <img
+                                            className="carousel-img d-block w-100"
+                                            src={BASE_URL_IMAGE + movie.poster_path}
+                                            alt="First slide" />
                                 </Carousel.Item>
                             ))}
                         </Carousel>
                     )}
                 </Col>
-            </Row></>
+            </Row>
+        </>
 	)
 }
 
