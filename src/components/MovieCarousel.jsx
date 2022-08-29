@@ -44,15 +44,14 @@ const MovieCarousel = ({ popularMovies, topRatedMovies, currentMovies }) => {
                                 to={`/movie/${movie.id}`}
                             >
                                 <img
-                                className="d-block w-100 carousel-img"
+                                 className="d-block w-100 carousel-img"
                                 src={BASE_URL_IMAGE + movie.poster_path}
-                                alt="First slide" />
+                            alt="First slide" />
                             </Carousel.Item>
                         ))}
                     </Carousel>
                 )}
             </Col>
-
             </Row>
             <Row className="mt-5 movieCarouselWrapper">
                 <Col className="d-md-none d-l-none d-flex" sm={12} md={6} lg={6}>

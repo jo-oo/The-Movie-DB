@@ -13,7 +13,7 @@ const MoviesByGenreList = ({movies}) => {
 						
                     {/* Render movies in genre */ }
                     <div className='d-flex flex-wrap'>
-                        <Row xs={2} md={4} lg={6} className="g-4">
+                        <Row xs={2} md={4} lg={6} className="g-4 m-1 justify-content-center">
                             {
                             movies.data.results.map((movie) => (
                                 <Card key={movie.id} className='movie'>
