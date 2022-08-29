@@ -3,8 +3,8 @@
 import { useQuery } from 'react-query'
 import movieDbAPI from '../services/movieDbAPI'
 
-const useMovieByGenre = (id) => {
-	return useQuery(['movie-by-genre', id], () => movieDbAPI.getMoviesByGenre(1, id)) //QueryKey=g movie-by-genre
+const useMovieByGenre = (id, page) => {
+	return useQuery(['movie-by-genre', id], () => movieDbAPI.getMoviesByGenre(page, id)) //QueryKey=g movie-by-genre
 }
 
 export default useMovieByGenre

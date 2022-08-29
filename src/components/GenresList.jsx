@@ -15,7 +15,7 @@ const GenresList = ({ genres }) => {
                  {/*prints all genres */}
                  <Row xs={2} md={4} lg={6} className="g-4">
                      {genres.genres.map(genre => (
-                         <Card key={genre.id} className='mt-auto' as={Link} to={`/genres/${genre.id}`} variant="dark">
+                         <Card key={genre.id} className='mt-auto' as={Link} to={`/genres/${genre.id}/1/`} variant="dark">
                              <Card.Body className='d-flex flex-column'>
                                  <Card.Title>{genre.name}</Card.Title>
                                  
