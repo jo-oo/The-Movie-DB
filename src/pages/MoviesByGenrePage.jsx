@@ -43,9 +43,9 @@ const MoviesByGenrePage = () => {
 
 					<Pagination
 							page={page}
-							numPages={data.data.total_pages}
+							numPages={data.data.total_pages} 
 							hasPreviousPage={(data.data.page > 1)} //kmr va disabled om det inte finns nån förra sida, om page är större än 1
-							hasNextPage={(data.data.page < data.data.total_pages) } //kmr va disabled om det inte finns nån nästa sida. om page är mindre än total pages
+							hasNextPage={(data.data.page < (data.data.total_pages <= 500 ? data.data.total_pages : 500)) } //kmr va disabled om det inte finns nån nästa sida. om page är mindre än total pages, sets total pages to either total pages or a maximum of 500 taotal pages in pagination since api stops fetching new data after 500 pages
 							onPreviousPage={() => setSearchParams({ genre_id: genre_id, page: page - 1})} //när du trycker på tex Previous Page sätter jag mina serachParams till: query till avd query redan är och page till vad den är minus 1
 							onNextPage={() => setSearchParams({ genre_id: genre_id, page: page + 1})}
 						/>

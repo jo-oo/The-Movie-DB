@@ -11,7 +11,7 @@ const Pagination = ({ page, numPages, hasPreviousPage, onPreviousPage, hasNextPa
 				>Previous Page</Button>
 			</div>
 
-			<div className="current-page">Page {page}/{numPages}</div>
+			<div className="current-page">Page {page}/{numPages <=500 ? numPages : 500}</div> {/* sets limit to 500 pages since api stops fetching after 500 and send status code 422 */}
 
 			<div className="next-page">
 				<Button
