@@ -13,7 +13,7 @@ const MoviesByGenreList = ({movies}) => {
 						
                     {/* Render movies in genre */ }
                     <div className='d-flex flex-wrap'>
-                        <Row xs={12} md={12} lg={12} className="g-4">
+                        <Row xs={2} md={4} lg={6} className="g-4">
                             {
                             movies.data.results.map((movie) => (
                                 <Card key={movie.id} className='movie'>
@@ -22,7 +22,7 @@ const MoviesByGenreList = ({movies}) => {
                                     )}
                                     <Card.Body className='d-flex flex-column'>
                                         <Card.Title>{movie.title}</Card.Title>
-                                        <Card.Text className='text-muted'>{movie.vote_average}</Card.Text>
+                                        <Card.Text className='text-muted'> Vote: {movie.vote_average}</Card.Text>
                                         <Button className='mt-auto' as={Link} to={`/movie/${movie.id}`} variant="dark">Read more</Button> 
                                     </Card.Body>
                                 </Card>
