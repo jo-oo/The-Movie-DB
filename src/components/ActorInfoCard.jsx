@@ -5,7 +5,7 @@ import ListGroup from 'react-bootstrap/ListGroup'
 
 const ActorInfoCard = ({ actor }) => {
 
-	const navigate = useNavigate() 
+
     console.log(actor);
 
 	return (
@@ -27,6 +27,7 @@ const ActorInfoCard = ({ actor }) => {
                                         )}
                             </Col>
                                 <Col xs={8} md={10} lg={6} className="g-4"> 
+                                    <Card.Text className='strong'> Name: {actor.name}</Card.Text>
                                     <Card.Text className='strong'> Place of birth: {actor.place_of_birth}</Card.Text>
                                     <Card.Text className='strong'> Popularity: {actor.popularity}</Card.Text>
                                 </Col>
@@ -58,6 +59,8 @@ const ActorInfoCard = ({ actor }) => {
                                  ))}
                             </Row>
                         </div>
+
+                     
 
                     </Card.Body>
                 </Card>
