@@ -9,16 +9,20 @@ import Pagination from '../components/Pagination'
 
 const MoviesByGenrePage = () => {
 
-	
-	//Pagination with the same principle as useSearchParams only using useParams (//vi bör använda oss av useSearchParams för att pagineringen ska kunna överleva att vi uppdaterar sidan)
+	const [searchParams, setSearchParams] = useSearchParams({ page: 1, genre_id: "", }) //intitierar useSearchParams med en page 1 and the genre_id from the GET-request
+	console.log("")
 
 	// hämtar data från url id och page namnen på dom säts i App.jsx
-	const { id , page} = useParams() 
-	console.log("från params", page)
-	const { data , error, isLoading, isError} = useMovieByGenre(id, page) //gets Movies by Genre
+	const genre_id = searchParams.get('genre_id') ? Number(searchParams.get('genre_id')) : ""
+	const page = searchParams.get('page') ? Number(searchParams.get('page')) : null //hämtar ut page från searchParams. Dom kommer tillbaka som stärngar så jag konvereterar den till number
+
+
+	console.log("page", page)
+	console.log("genre_id ", genre_id)
+	const { data , error, isLoading, isError} = useMovieByGenre(page, genre_id) //gets Movies by Genre
 
 	
-    console.log("movies by genre Page", id)
+    console.log("movies by genre Page", genre_id)
 	console.log(data)
 
     return (
@@ -41,10 +45,9 @@ const MoviesByGenrePage = () => {
 							page={page}
 							numPages={data.data.total_pages}
 							hasPreviousPage={(data.data.page > 1)} //kmr va disabled om det inte finns nån förra sida, om page är större än 1
-							//hasNextPage={(data.data.page < data.data.total_pages) } //kmr va disabled om det inte finns nån nästa sida. om page är mindre än total pages
-							//if i should use SerachParams:
-							//onPreviousPage={() => setSearchParams({ query, page: page - 1})} //när du trycker på tex Previous Page sätter jag mina serachParams till: query till avd query redan är och page till vad den är minus 1
-							//onNextPage={() => setSearchParams({ query, page: page + 1})}
+							hasNextPage={(data.data.page < data.data.total_pages) } //kmr va disabled om det inte finns nån nästa sida. om page är mindre än total pages
+							onPreviousPage={() => setSearchParams({ genre_id: genre_id, page: page - 1})} //när du trycker på tex Previous Page sätter jag mina serachParams till: query till avd query redan är och page till vad den är minus 1
+							onNextPage={() => setSearchParams({ genre_id: genre_id, page: page + 1})}
 						/>
 
                 </>
